@@ -19,13 +19,13 @@ public class ProfileController {
     @Autowired
     private TradeRepository tradeRepository;
     @GetMapping("/user/{userid}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://pets-webapp-dot-db-grads-0mjf-group-11.nw.r.appspot.com/")
     public User getUserProfile(@PathVariable int userid) {
         return userRepository.getUserInfo(userid);
     }
 
     @GetMapping("/profile/{userid}/trades")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://pets-webapp-dot-db-grads-0mjf-group-11.nw.r.appspot.com/")
     public List<Trade> getUserTrades(@PathVariable Integer userid) {
         return tradeRepository.findByUser(userid);
     }

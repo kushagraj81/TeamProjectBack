@@ -14,7 +14,7 @@ public class LoginController {
     private UserRepository userRepository;
 
     @PostMapping("/login")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://pets-webapp-dot-db-grads-0mjf-group-11.nw.r.appspot.com/")
     public User checkUser(@Valid @RequestBody User user) {
         if(user.getEmail() == null || user.getPassword() == null)
         {

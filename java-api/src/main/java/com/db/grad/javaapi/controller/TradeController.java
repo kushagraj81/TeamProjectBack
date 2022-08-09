@@ -22,28 +22,28 @@ public class TradeController {
 
     //get all trades for a security
     @GetMapping("/dashboard/{securityid}/trades")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://pets-webapp-dot-db-grads-0mjf-group-11.nw.r.appspot.com/")
     public List<Trade> getTradesBySecurityId(@PathVariable Integer securityid) {
         return tradeRepository.findBySecurityId(securityid);
     }
 
     //get trade by id
     @GetMapping("dashboard/trade/{tradeid}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://pets-webapp-dot-db-grads-0mjf-group-11.nw.r.appspot.com/")
     public Optional<Trade> getTrade(@PathVariable Integer tradeid) {
         return tradeRepository.findById(tradeid);
     }
 
     //add new trade
     @PostMapping("/dashboard/trade")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://pets-webapp-dot-db-grads-0mjf-group-11.nw.r.appspot.com/")
     public ResponseEntity<Trade> createTrade(@RequestBody Trade trade) {
         return ResponseEntity.ok(tradeRepository.save(trade));
     }
 
     //edit trade
     @PutMapping("/dashboard/trade/{tradeid}")
-    @CrossOrigin(origins = "http://localhost:3000")
+    @CrossOrigin(origins = "https://pets-webapp-dot-db-grads-0mjf-group-11.nw.r.appspot.com/")
     public ResponseEntity<Trade> updateTrade(@PathVariable Integer tradeid, @RequestBody Trade trade) throws ResourceNotFoundException {
         return ResponseEntity.ok(tradeService.updateTradeDetails(tradeid, trade));
     }
