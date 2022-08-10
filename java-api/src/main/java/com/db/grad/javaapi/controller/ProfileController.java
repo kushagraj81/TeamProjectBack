@@ -29,4 +29,10 @@ public class ProfileController {
     public List<Trade> getUserTrades(@PathVariable Integer userid) {
         return tradeRepository.findByUser(userid);
     }
+    @GetMapping("/profile/{userid}/active")
+    @CrossOrigin(origins = "https://pets-webapp-dot-db-grads-0mjf-group-11.nw.r.appspot.com/")
+    public List<Trade> getActiveTrades(@PathVariable Integer userid) {
+       
+        return tradeRepository.findActiveByUser(userid);
+    }
 }

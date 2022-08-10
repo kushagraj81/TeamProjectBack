@@ -15,4 +15,6 @@ public interface TradeRepository extends JpaRepository<Trade, Integer> {
 
     @Query(nativeQuery = true, value="Select t.*, bookname, bu.userid, s.* from trade t left join book b on t.bookid = b.id inner join bookuser bu on b.id = bu.bookid inner join security s on t.securityid = s.id where bu.userid=?1")
     List<Trade> findByUser(Integer id);
+    @Query(nativeQuery = true, value="Select t.*, bookname, bu.userid, s.* from trade t left join book b on t.bookid = b.id inner join bookuser bu on b.id = bu.bookid inner join security s on t.securityid = s.id where s.assignee=?1 and s.status='Active' and s.maturityDate <= '2022-08-10'")
+    List<Trade> findActiveByUser(Integer id);
 }
